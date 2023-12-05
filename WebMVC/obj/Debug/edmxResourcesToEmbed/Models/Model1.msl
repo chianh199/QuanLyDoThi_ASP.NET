@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TTTT3ModelStoreContainer" CdmEntityContainer="TTTT3Entities5">
+    <EntitySetMapping Name="CHITIETPHANQUYENs">
+      <EntityTypeMapping TypeName="TTTT3Model.CHITIETPHANQUYEN">
+        <MappingFragment StoreEntitySet="CHITIETPHANQUYEN">
+          <ScalarProperty Name="IDCHITIETPHANQUYEN" ColumnName="IDCHITIETPHANQUYEN" />
+          <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+          <ScalarProperty Name="IDQUYEN" ColumnName="IDQUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETPHIEUTHUs">
+      <EntityTypeMapping TypeName="TTTT3Model.CHITIETPHIEUTHU">
+        <MappingFragment StoreEntitySet="CHITIETPHIEUTHU">
+          <ScalarProperty Name="IDCHITIETPHIEUTHU" ColumnName="IDCHITIETPHIEUTHU" />
+          <ScalarProperty Name="IDPHIEU" ColumnName="IDPHIEU" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="SOTIEN" ColumnName="SOTIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="TTTT3Model.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+          <ScalarProperty Name="IDTUYENTHU" ColumnName="IDTUYENTHU" />
+          <ScalarProperty Name="IDLOAIKH" ColumnName="IDLOAIKH" />
+          <ScalarProperty Name="IDXAPHUONG" ColumnName="IDXAPHUONG" />
+          <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="CMT" ColumnName="CMT" />
+          <ScalarProperty Name="NGAYCAP" ColumnName="NGAYCAP" />
+          <ScalarProperty Name="NGAYTAO" ColumnName="NGAYTAO" />
+          <ScalarProperty Name="NGAYCHINHSUA" ColumnName="NGAYCHINHSUA" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KYTHUs">
+      <EntityTypeMapping TypeName="TTTT3Model.KYTHU">
+        <MappingFragment StoreEntitySet="KYTHU">
+          <ScalarProperty Name="IDKYTHU" ColumnName="IDKYTHU" />
+          <ScalarProperty Name="TENKYTHU" ColumnName="TENKYTHU" />
+          <ScalarProperty Name="TRANGTHAIKYTHU" ColumnName="TRANGTHAIKYTHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIKHs">
+      <EntityTypeMapping TypeName="TTTT3Model.LOAIKH">
+        <MappingFragment StoreEntitySet="LOAIKH">
+          <ScalarProperty Name="IDLOAIKH" ColumnName="IDLOAIKH" />
+          <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+          <ScalarProperty Name="TENLOAIPHI" ColumnName="TENLOAIPHI" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENUs">
+      <EntityTypeMapping TypeName="TTTT3Model.MENU">
+        <MappingFragment StoreEntitySet="MENU">
+          <ScalarProperty Name="IDMENU" ColumnName="IDMENU" />
+          <ScalarProperty Name="TENMENU" ColumnName="TENMENU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="TTTT3Model.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+          <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANQUYENMENUs">
+      <EntityTypeMapping TypeName="TTTT3Model.PHANQUYENMENU">
+        <MappingFragment StoreEntitySet="PHANQUYENMENU">
+          <ScalarProperty Name="IDPHANQUYENMENU" ColumnName="IDPHANQUYENMENU" />
+          <ScalarProperty Name="IDQUYEN" ColumnName="IDQUYEN" />
+          <ScalarProperty Name="IDMENU" ColumnName="IDMENU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANQUYENTUYENTHUs">
+      <EntityTypeMapping TypeName="TTTT3Model.PHANQUYENTUYENTHU">
+        <MappingFragment StoreEntitySet="PHANQUYENTUYENTHU">
+          <ScalarProperty Name="IDPHANQUYENTUYENTHU" ColumnName="IDPHANQUYENTUYENTHU" />
+          <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+          <ScalarProperty Name="IDTUYENTHU" ColumnName="IDTUYENTHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUTHUs">
+      <EntityTypeMapping TypeName="TTTT3Model.PHIEUTHU">
+        <MappingFragment StoreEntitySet="PHIEUTHU">
+          <ScalarProperty Name="IDNGUOITHU" ColumnName="IDNGUOITHU" />
+          <ScalarProperty Name="TRANGTHAIHUY" ColumnName="TRANGTHAIHUY" />
+          <ScalarProperty Name="MASOPHIEU" ColumnName="MASOPHIEU" />
+          <ScalarProperty Name="IDPHIEU" ColumnName="IDPHIEU" />
+          <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+          <ScalarProperty Name="IDKYTHU" ColumnName="IDKYTHU" />
+          <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+          <ScalarProperty Name="MAUSOPHIEU" ColumnName="MAUSOPHIEU" />
+          <ScalarProperty Name="KYHIEU" ColumnName="KYHIEU" />
+          <ScalarProperty Name="TRANGTHAIPHIEU" ColumnName="TRANGTHAIPHIEU" />
+          <ScalarProperty Name="NGAYTAO" ColumnName="NGAYTAO" />
+          <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
+          <ScalarProperty Name="NGUOICAPNHAT" ColumnName="NGUOICAPNHAT" />
+          <ScalarProperty Name="NGUOITHU" ColumnName="NGUOITHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUANHUYENs">
+      <EntityTypeMapping TypeName="TTTT3Model.QUANHUYEN">
+        <MappingFragment StoreEntitySet="QUANHUYEN">
+          <ScalarProperty Name="IDQUANHUYEN" ColumnName="IDQUANHUYEN" />
+          <ScalarProperty Name="TENQUANHUYEN" ColumnName="TENQUANHUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUYENs">
+      <EntityTypeMapping TypeName="TTTT3Model.QUYEN">
+        <MappingFragment StoreEntitySet="QUYEN">
+          <ScalarProperty Name="IDQUYEN" ColumnName="IDQUYEN" />
+          <ScalarProperty Name="TENQUYEN" ColumnName="TENQUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUYENTHUs">
+      <EntityTypeMapping TypeName="TTTT3Model.TUYENTHU">
+        <MappingFragment StoreEntitySet="TUYENTHU">
+          <ScalarProperty Name="IDTUYENTHU" ColumnName="IDTUYENTHU" />
+          <ScalarProperty Name="IDXAPHUONG" ColumnName="IDXAPHUONG" />
+          <ScalarProperty Name="MATUYENTHU" ColumnName="MATUYENTHU" />
+          <ScalarProperty Name="TENTUYENTHU" ColumnName="TENTUYENTHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XAPHUONGs">
+      <EntityTypeMapping TypeName="TTTT3Model.XAPHUONG">
+        <MappingFragment StoreEntitySet="XAPHUONG">
+          <ScalarProperty Name="IDXAPHUONG" ColumnName="IDXAPHUONG" />
+          <ScalarProperty Name="IDQUANHUYEN" ColumnName="IDQUANHUYEN" />
+          <ScalarProperty Name="TENXAPHUONG" ColumnName="TENXAPHUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
