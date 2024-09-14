@@ -1,0 +1,16 @@
+name: dockercompose3521984202593933172
+services:
+  webmvc:
+    build:
+      context: D:\ASP.NET\WebMVC\WebMVC
+      dockerfile: Dockerfile
+    image: webmvc
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose3521984202593933172_default

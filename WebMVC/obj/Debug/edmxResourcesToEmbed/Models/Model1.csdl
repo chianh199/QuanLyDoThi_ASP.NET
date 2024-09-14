@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TTTT3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHITIETPHANQUYEN">
+    <Key>
+      <PropertyRef Name="IDCHITIETPHANQUYEN" />
+    </Key>
+    <Property Name="IDCHITIETPHANQUYEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNHANVIEN" Type="Int32" Nullable="false" />
+    <Property Name="IDQUYEN" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_CHITIETP_RELATIONS_NHANVIEN" FromRole="CHITIETPHANQUYEN" ToRole="NHANVIEN" />
+    <NavigationProperty Name="QUYEN" Relationship="Self.FK_CHITIETP_RELATIONS_QUYEN" FromRole="CHITIETPHANQUYEN" ToRole="QUYEN" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIEUTHU">
+    <Key>
+      <PropertyRef Name="IDCHITIETPHIEUTHU" />
+    </Key>
+    <Property Name="IDCHITIETPHIEUTHU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPHIEU" Type="Int32" Nullable="false" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SOTIEN" Type="Int32" />
+    <NavigationProperty Name="PHIEUTHU" Relationship="Self.FK_CHITIETP_RELATIONS_PHIEUTHU" FromRole="CHITIETPHIEUTHU" ToRole="PHIEUTHU" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="IDKHACHHANG" />
+    </Key>
+    <Property Name="IDKHACHHANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTUYENTHU" Type="Int32" Nullable="false" />
+    <Property Name="IDLOAIKH" Type="Int32" Nullable="false" />
+    <Property Name="IDXAPHUONG" Type="Int32" Nullable="false" />
+    <Property Name="MAKHACHHANG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CMT" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYCAP" Type="DateTime" Precision="3" />
+    <Property Name="NGAYTAO" Type="DateTime" Precision="3" />
+    <Property Name="NGAYCHINHSUA" Type="DateTime" Precision="3" />
+    <Property Name="TRANGTHAI" Type="Boolean" />
+    <NavigationProperty Name="LOAIKH" Relationship="Self.FK_KHACHHAN_KHACHHANG_LOAIKH" FromRole="KHACHHANG" ToRole="LOAIKH" />
+    <NavigationProperty Name="TUYENTHU" Relationship="Self.FK_KHACHHAN_RELATIONS_TUYENTHU" FromRole="KHACHHANG" ToRole="TUYENTHU" />
+    <NavigationProperty Name="PHIEUTHUs" Relationship="Self.FK_PHIEUTHU_THU_KHACHHAN" FromRole="KHACHHANG" ToRole="PHIEUTHU" />
+  </EntityType>
+  <EntityType Name="KYTHU">
+    <Key>
+      <PropertyRef Name="IDKYTHU" />
+    </Key>
+    <Property Name="IDKYTHU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENKYTHU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAIKYTHU" Type="Boolean" />
+    <NavigationProperty Name="PHIEUTHUs" Relationship="Self.FK_PHIEUTHU_RELATIONS_KYTHU" FromRole="KYTHU" ToRole="PHIEUTHU" />
+  </EntityType>
+  <EntityType Name="LOAIKH">
+    <Key>
+      <PropertyRef Name="IDLOAIKH" />
+    </Key>
+    <Property Name="IDLOAIKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TENLOAIPHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GIA" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="KHACHHANGs" Relationship="Self.FK_KHACHHAN_KHACHHANG_LOAIKH" FromRole="LOAIKH" ToRole="KHACHHANG" />
+  </EntityType>
+  <EntityType Name="MENU">
+    <Key>
+      <PropertyRef Name="IDMENU" />
+    </Key>
+    <Property Name="IDMENU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENMENU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHANQUYENMENUs" Relationship="Self.FK_PQM_MN" FromRole="MENU" ToRole="PHANQUYENMENU" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="IDNHANVIEN" />
+    </Key>
+    <Property Name="IDNHANVIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANHANVIEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Decimal" Precision="11" Scale="0" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETPHANQUYENs" Relationship="Self.FK_CHITIETP_RELATIONS_NHANVIEN" FromRole="NHANVIEN" ToRole="CHITIETPHANQUYEN" />
+    <NavigationProperty Name="PHANQUYENTUYENTHUs" Relationship="Self.FK_PHANQUYE_RELATIONS_NHANVIEN" FromRole="NHANVIEN" ToRole="PHANQUYENTUYENTHU" />
+    <NavigationProperty Name="PHIEUTHUs" Relationship="Self.FK_PHIEUTHU_RELATIONS_NHANVIEN" FromRole="NHANVIEN" ToRole="PHIEUTHU" />
+  </EntityType>
+  <EntityType Name="PHANQUYENMENU">
+    <Key>
+      <PropertyRef Name="IDPHANQUYENMENU" />
+    </Key>
+    <Property Name="IDPHANQUYENMENU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDQUYEN" Type="Int32" />
+    <Property Name="IDMENU" Type="Int32" />
+    <NavigationProperty Name="MENU" Relationship="Self.FK_PQM_MN" FromRole="PHANQUYENMENU" ToRole="MENU" />
+    <NavigationProperty Name="QUYEN" Relationship="Self.FK_PQM_Q" FromRole="PHANQUYENMENU" ToRole="QUYEN" />
+  </EntityType>
+  <EntityType Name="PHANQUYENTUYENTHU">
+    <Key>
+      <PropertyRef Name="IDPHANQUYENTUYENTHU" />
+    </Key>
+    <Property Name="IDPHANQUYENTUYENTHU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNHANVIEN" Type="Int32" Nullable="false" />
+    <Property Name="IDTUYENTHU" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PHANQUYE_RELATIONS_NHANVIEN" FromRole="PHANQUYENTUYENTHU" ToRole="NHANVIEN" />
+    <NavigationProperty Name="TUYENTHU" Relationship="Self.FK_PHANQUYE_RELATIONS_TUYENTHU" FromRole="PHANQUYENTUYENTHU" ToRole="TUYENTHU" />
+  </EntityType>
+  <EntityType Name="PHIEUTHU">
+    <Key>
+      <PropertyRef Name="IDPHIEU" />
+    </Key>
+    <Property Name="IDPHIEU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDKHACHHANG" Type="Int32" Nullable="false" />
+    <Property Name="IDKYTHU" Type="Int32" Nullable="false" />
+    <Property Name="IDNHANVIEN" Type="Int32" Nullable="false" />
+    <Property Name="MAUSOPHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KYHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAIPHIEU" Type="Boolean" />
+    <Property Name="NGAYTAO" Type="DateTime" Precision="3" />
+    <Property Name="NGAYCAPNHAT" Type="DateTime" Precision="3" />
+    <Property Name="NGUOICAPNHAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGUOITHU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETPHIEUTHUs" Relationship="Self.FK_CHITIETP_RELATIONS_PHIEUTHU" FromRole="PHIEUTHU" ToRole="CHITIETPHIEUTHU" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_PHIEUTHU_THU_KHACHHAN" FromRole="PHIEUTHU" ToRole="KHACHHANG" />
+    <NavigationProperty Name="KYTHU" Relationship="Self.FK_PHIEUTHU_RELATIONS_KYTHU" FromRole="PHIEUTHU" ToRole="KYTHU" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PHIEUTHU_RELATIONS_NHANVIEN" FromRole="PHIEUTHU" ToRole="NHANVIEN" />
+    <Property Name="MASOPHIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAIHUY" Type="Boolean" />
+    <Property Name="IDNGUOITHU" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QUANHUYEN">
+    <Key>
+      <PropertyRef Name="IDQUANHUYEN" />
+    </Key>
+    <Property Name="IDQUANHUYEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENQUANHUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="XAPHUONGs" Relationship="Self.FK_XAPHUONG_RELATIONS_QUANHUYE" FromRole="QUANHUYEN" ToRole="XAPHUONG" />
+  </EntityType>
+  <EntityType Name="QUYEN">
+    <Key>
+      <PropertyRef Name="IDQUYEN" />
+    </Key>
+    <Property Name="IDQUYEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENQUYEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETPHANQUYENs" Relationship="Self.FK_CHITIETP_RELATIONS_QUYEN" FromRole="QUYEN" ToRole="CHITIETPHANQUYEN" />
+    <NavigationProperty Name="PHANQUYENMENUs" Relationship="Self.FK_PQM_Q" FromRole="QUYEN" ToRole="PHANQUYENMENU" />
+  </EntityType>
+  <EntityType Name="TUYENTHU">
+    <Key>
+      <PropertyRef Name="IDTUYENTHU" />
+    </Key>
+    <Property Name="IDTUYENTHU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDXAPHUONG" Type="Int32" Nullable="false" />
+    <Property Name="MATUYENTHU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TENTUYENTHU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANGs" Relationship="Self.FK_KHACHHAN_RELATIONS_TUYENTHU" FromRole="TUYENTHU" ToRole="KHACHHANG" />
+    <NavigationProperty Name="PHANQUYENTUYENTHUs" Relationship="Self.FK_PHANQUYE_RELATIONS_TUYENTHU" FromRole="TUYENTHU" ToRole="PHANQUYENTUYENTHU" />
+    <NavigationProperty Name="XAPHUONG" Relationship="Self.fk_xp_tt" FromRole="TUYENTHU" ToRole="XAPHUONG" />
+  </EntityType>
+  <EntityType Name="XAPHUONG">
+    <Key>
+      <PropertyRef Name="IDXAPHUONG" />
+    </Key>
+    <Property Name="IDXAPHUONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDQUANHUYEN" Type="Int32" Nullable="false" />
+    <Property Name="TENXAPHUONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="QUANHUYEN" Relationship="Self.FK_XAPHUONG_RELATIONS_QUANHUYE" FromRole="XAPHUONG" ToRole="QUANHUYEN" />
+    <NavigationProperty Name="TUYENTHUs" Relationship="Self.fk_xp_tt" FromRole="XAPHUONG" ToRole="TUYENTHU" />
+  </EntityType>
+  <Association Name="FK_CHITIETP_RELATIONS_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETPHANQUYEN" Type="Self.CHITIETPHANQUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="IDNHANVIEN" />
+      </Principal>
+      <Dependent Role="CHITIETPHANQUYEN">
+        <PropertyRef Name="IDNHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETP_RELATIONS_QUYEN">
+    <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETPHANQUYEN" Type="Self.CHITIETPHANQUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUYEN">
+        <PropertyRef Name="IDQUYEN" />
+      </Principal>
+      <Dependent Role="CHITIETPHANQUYEN">
+        <PropertyRef Name="IDQUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETP_RELATIONS_PHIEUTHU">
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETPHIEUTHU" Type="Self.CHITIETPHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUTHU">
+        <PropertyRef Name="IDPHIEU" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUTHU">
+        <PropertyRef Name="IDPHIEU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHACHHAN_KHACHHANG_LOAIKH">
+    <End Role="LOAIKH" Type="Self.LOAIKH" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIKH">
+        <PropertyRef Name="IDLOAIKH" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="IDLOAIKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHACHHAN_RELATIONS_TUYENTHU">
+    <End Role="TUYENTHU" Type="Self.TUYENTHU" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUYENTHU">
+        <PropertyRef Name="IDTUYENTHU" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="IDTUYENTHU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHU_THU_KHACHHAN">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="IDKHACHHANG" />
+      </Principal>
+      <Dependent Role="PHIEUTHU">
+        <PropertyRef Name="IDKHACHHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHU_RELATIONS_KYTHU">
+    <End Role="KYTHU" Type="Self.KYTHU" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KYTHU">
+        <PropertyRef Name="IDKYTHU" />
+      </Principal>
+      <Dependent Role="PHIEUTHU">
+        <PropertyRef Name="IDKYTHU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PQM_MN">
+    <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
+    <End Role="PHANQUYENMENU" Type="Self.PHANQUYENMENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENU">
+        <PropertyRef Name="IDMENU" />
+      </Principal>
+      <Dependent Role="PHANQUYENMENU">
+        <PropertyRef Name="IDMENU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANQUYE_RELATIONS_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHANQUYENTUYENTHU" Type="Self.PHANQUYENTUYENTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="IDNHANVIEN" />
+      </Principal>
+      <Dependent Role="PHANQUYENTUYENTHU">
+        <PropertyRef Name="IDNHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHU_RELATIONS_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="IDNHANVIEN" />
+      </Principal>
+      <Dependent Role="PHIEUTHU">
+        <PropertyRef Name="IDNHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PQM_Q">
+    <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="0..1" />
+    <End Role="PHANQUYENMENU" Type="Self.PHANQUYENMENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUYEN">
+        <PropertyRef Name="IDQUYEN" />
+      </Principal>
+      <Dependent Role="PHANQUYENMENU">
+        <PropertyRef Name="IDQUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANQUYE_RELATIONS_TUYENTHU">
+    <End Role="TUYENTHU" Type="Self.TUYENTHU" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHANQUYENTUYENTHU" Type="Self.PHANQUYENTUYENTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUYENTHU">
+        <PropertyRef Name="IDTUYENTHU" />
+      </Principal>
+      <Dependent Role="PHANQUYENTUYENTHU">
+        <PropertyRef Name="IDTUYENTHU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XAPHUONG_RELATIONS_QUANHUYE">
+    <End Role="QUANHUYEN" Type="Self.QUANHUYEN" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="XAPHUONG" Type="Self.XAPHUONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUANHUYEN">
+        <PropertyRef Name="IDQUANHUYEN" />
+      </Principal>
+      <Dependent Role="XAPHUONG">
+        <PropertyRef Name="IDQUANHUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_xp_tt">
+    <End Role="XAPHUONG" Type="Self.XAPHUONG" Multiplicity="1" />
+    <End Role="TUYENTHU" Type="Self.TUYENTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XAPHUONG">
+        <PropertyRef Name="IDXAPHUONG" />
+      </Principal>
+      <Dependent Role="TUYENTHU">
+        <PropertyRef Name="IDXAPHUONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TTTT3Entities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETPHANQUYENs" EntityType="Self.CHITIETPHANQUYEN" />
+    <EntitySet Name="CHITIETPHIEUTHUs" EntityType="Self.CHITIETPHIEUTHU" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="KYTHUs" EntityType="Self.KYTHU" />
+    <EntitySet Name="LOAIKHs" EntityType="Self.LOAIKH" />
+    <EntitySet Name="MENUs" EntityType="Self.MENU" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="PHANQUYENMENUs" EntityType="Self.PHANQUYENMENU" />
+    <EntitySet Name="PHANQUYENTUYENTHUs" EntityType="Self.PHANQUYENTUYENTHU" />
+    <EntitySet Name="PHIEUTHUs" EntityType="Self.PHIEUTHU" />
+    <EntitySet Name="QUANHUYENs" EntityType="Self.QUANHUYEN" />
+    <EntitySet Name="QUYENs" EntityType="Self.QUYEN" />
+    <EntitySet Name="TUYENTHUs" EntityType="Self.TUYENTHU" />
+    <EntitySet Name="XAPHUONGs" EntityType="Self.XAPHUONG" />
+    <AssociationSet Name="FK_CHITIETP_RELATIONS_NHANVIEN" Association="Self.FK_CHITIETP_RELATIONS_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="CHITIETPHANQUYEN" EntitySet="CHITIETPHANQUYENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETP_RELATIONS_QUYEN" Association="Self.FK_CHITIETP_RELATIONS_QUYEN">
+      <End Role="QUYEN" EntitySet="QUYENs" />
+      <End Role="CHITIETPHANQUYEN" EntitySet="CHITIETPHANQUYENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETP_RELATIONS_PHIEUTHU" Association="Self.FK_CHITIETP_RELATIONS_PHIEUTHU">
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
+      <End Role="CHITIETPHIEUTHU" EntitySet="CHITIETPHIEUTHUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHACHHAN_KHACHHANG_LOAIKH" Association="Self.FK_KHACHHAN_KHACHHANG_LOAIKH">
+      <End Role="LOAIKH" EntitySet="LOAIKHs" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHACHHAN_RELATIONS_TUYENTHU" Association="Self.FK_KHACHHAN_RELATIONS_TUYENTHU">
+      <End Role="TUYENTHU" EntitySet="TUYENTHUs" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHU_THU_KHACHHAN" Association="Self.FK_PHIEUTHU_THU_KHACHHAN">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHU_RELATIONS_KYTHU" Association="Self.FK_PHIEUTHU_RELATIONS_KYTHU">
+      <End Role="KYTHU" EntitySet="KYTHUs" />
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PQM_MN" Association="Self.FK_PQM_MN">
+      <End Role="MENU" EntitySet="MENUs" />
+      <End Role="PHANQUYENMENU" EntitySet="PHANQUYENMENUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANQUYE_RELATIONS_NHANVIEN" Association="Self.FK_PHANQUYE_RELATIONS_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHANQUYENTUYENTHU" EntitySet="PHANQUYENTUYENTHUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHU_RELATIONS_NHANVIEN" Association="Self.FK_PHIEUTHU_RELATIONS_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PQM_Q" Association="Self.FK_PQM_Q">
+      <End Role="QUYEN" EntitySet="QUYENs" />
+      <End Role="PHANQUYENMENU" EntitySet="PHANQUYENMENUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANQUYE_RELATIONS_TUYENTHU" Association="Self.FK_PHANQUYE_RELATIONS_TUYENTHU">
+      <End Role="TUYENTHU" EntitySet="TUYENTHUs" />
+      <End Role="PHANQUYENTUYENTHU" EntitySet="PHANQUYENTUYENTHUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XAPHUONG_RELATIONS_QUANHUYE" Association="Self.FK_XAPHUONG_RELATIONS_QUANHUYE">
+      <End Role="QUANHUYEN" EntitySet="QUANHUYENs" />
+      <End Role="XAPHUONG" EntitySet="XAPHUONGs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_xp_tt" Association="Self.fk_xp_tt">
+      <End Role="XAPHUONG" EntitySet="XAPHUONGs" />
+      <End Role="TUYENTHU" EntitySet="TUYENTHUs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

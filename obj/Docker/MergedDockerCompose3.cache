@@ -1,0 +1,40 @@
+name: dockercompose3521984202593933172
+services:
+  webmvc:
+    build:
+      context: D:\ASP.NET\WebMVC\WebMVC
+      dockerfile: Dockerfile
+      args:
+        source: obj/Docker/publish/
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: WebMVC
+    container_name: WebMVC_1
+    entrypoint:
+    - cmd
+    - /c
+    - start /B C:\ServiceMonitor.exe w3svc & C:\remote_debugger\x64\msvsmon.exe /noauth
+      /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn
+      /timeout:2147483646
+    image: webmvc
+    labels:
+      com.microsoft.visual-studio.project-name: WebMVC
+      com.microsoft.visualstudio.debuggee.program: C:\inetpub\wwwroot\bin\WebMVC.dll
+      com.microsoft.visualstudio.debuggee.workingdirectory: C:\app
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Remote
+        Debugger
+      target: C:\remote_debugger
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose3521984202593933172_default
